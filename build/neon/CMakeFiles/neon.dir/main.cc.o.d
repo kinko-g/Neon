@@ -171,4 +171,5 @@ neon/CMakeFiles/neon.dir/main.cc.o: /home/kinko/cpp/neon/neon/main.cc \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/c++/7/cstring \
  /usr/include/string.h /usr/include/strings.h \
  /home/kinko/cpp/neon/neon/./include/Socket.h \
- /home/kinko/cpp/neon/neon/./include/Acceptor.h
+ /home/kinko/cpp/neon/neon/./include/Acceptor.h \
+ /home/kinko/cpp/neon/neon/./include/TcpConnection.h

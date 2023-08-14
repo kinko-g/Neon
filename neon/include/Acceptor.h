@@ -7,12 +7,13 @@
 namespace Neon {
 class Channel;
 class EventLoop;
+class TcpConnection;
 class Acceptor final : NonCopyable {
 public:
-    using NewConnHandlerType = std::function<void(int)>;
+    using NewConnHandlerType = std::function<void(std::shared_ptr<TcpConnection>)>;
     Acceptor(EventLoop* eventloop);
     void listen_on(const Socket::Endpoint& endpoint,int backlogs = 10);
-    const Socket& tcp_socket() const {
+    Socket& tcp_socket() {
         return sock_;
     }
 

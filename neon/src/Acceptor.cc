@@ -3,6 +3,7 @@
 #include <Channel.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <TcpConnection.h>
 
 namespace Neon {
 Acceptor::Acceptor(EventLoop* eventloop) :
@@ -21,9 +22,11 @@ void Acceptor::listen_on(const Socket::Endpoint& endpoint,int backlogs) {
     chan_->set_read_handler([this]{
         // sockaddr_in addr{};
         // socklen_t addr_len = sizeof(addr);
-        auto fd = ::accept(this->chan_->fd(),nullptr,nullptr);
+        // auto fd = ::accept(this->chan_->fd(),nullptr,nullptr);
+        auto fd = this->sock_.accepet();
         if(fd > 0 && this->new_conn_handler_) {
-            this->new_conn_handler_(fd);
+            auto conn = std::make_shared<TcpConnection>(fd,this->eventloop_);
+            this->new_conn_handler_(conn);
         } 
         else {
             ::close(fd);

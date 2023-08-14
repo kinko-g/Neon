@@ -5,15 +5,17 @@
 
 namespace Neon {
 class Channel;
+class EventLoop;
 class TcpConnection final : public NonCopyable{
 public:
-    TcpConnection() = default;
-    const Socket& tcp_socket() const {
+    TcpConnection(int fd,EventLoop *eventloop);
+    Socket& tcp_socket() {
         return sock_;
     }
     void start_read();
 private:
-    std::shared_ptr<Channel> chan_;
     Socket sock_;
+    std::shared_ptr<Channel> chan_;
+    EventLoop* eventloop_;
 };
 }

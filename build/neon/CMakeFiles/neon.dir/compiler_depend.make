@@ -222,7 +222,8 @@ neon/CMakeFiles/neon.dir/main.cc.o: /home/kinko/cpp/neon/neon/main.cc \
   /usr/include/string.h \
   /usr/include/strings.h \
   /home/kinko/cpp/neon/neon/include/Socket.h \
-  /home/kinko/cpp/neon/neon/include/Acceptor.h
+  /home/kinko/cpp/neon/neon/include/Acceptor.h \
+  /home/kinko/cpp/neon/neon/include/TcpConnection.h
 
 neon/CMakeFiles/neon.dir/src/Acceptor.cc.o: /home/kinko/cpp/neon/neon/src/Acceptor.cc \
   /usr/include/stdc-predef.h \
@@ -430,7 +431,8 @@ neon/CMakeFiles/neon.dir/src/Acceptor.cc.o: /home/kinko/cpp/neon/neon/src/Accept
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/arpa/inet.h \
   /usr/include/netinet/in.h \
-  /usr/include/x86_64-linux-gnu/bits/in.h
+  /usr/include/x86_64-linux-gnu/bits/in.h \
+  /home/kinko/cpp/neon/neon/include/TcpConnection.h
 
 neon/CMakeFiles/neon.dir/src/Channel.cc.o: /home/kinko/cpp/neon/neon/src/Channel.cc \
   /usr/include/stdc-predef.h \
@@ -1414,10 +1416,6 @@ neon/CMakeFiles/neon.dir/src/TcpConnection.cc.o: /home/kinko/cpp/neon/neon/src/T
 
 /home/kinko/cpp/neon/neon/src/TcpConnection.cc:
 
-/home/kinko/cpp/neon/neon/include/TcpConnection.h:
-
-/usr/include/fcntl.h:
-
 /home/kinko/cpp/neon/neon/src/Socket.cc:
 
 /usr/include/c++/7/bits/uniform_int_dist.h:
@@ -1451,6 +1449,10 @@ neon/CMakeFiles/neon.dir/src/TcpConnection.cc.o: /home/kinko/cpp/neon/neon/src/T
 /usr/include/x86_64-linux-gnu/sys/epoll.h:
 
 /home/kinko/cpp/neon/neon/src/Acceptor.cc:
+
+/usr/include/fcntl.h:
+
+/home/kinko/cpp/neon/neon/include/TcpConnection.h:
 
 /home/kinko/cpp/neon/neon/include/Acceptor.h:
 

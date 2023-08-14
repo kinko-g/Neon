@@ -224,6 +224,7 @@ neon/CMakeFiles/neon.dir/main.cc.o
  /usr/include/strings.h
  /home/kinko/cpp/neon/neon/include/Socket.h
  /home/kinko/cpp/neon/neon/include/Acceptor.h
+ /home/kinko/cpp/neon/neon/include/TcpConnection.h
 
 neon/CMakeFiles/neon.dir/src/Acceptor.cc.o
  /home/kinko/cpp/neon/neon/src/Acceptor.cc
@@ -433,6 +434,7 @@ neon/CMakeFiles/neon.dir/src/Acceptor.cc.o
  /usr/include/arpa/inet.h
  /usr/include/netinet/in.h
  /usr/include/x86_64-linux-gnu/bits/in.h
+ /home/kinko/cpp/neon/neon/include/TcpConnection.h
 
 neon/CMakeFiles/neon.dir/src/Channel.cc.o
  /home/kinko/cpp/neon/neon/src/Channel.cc

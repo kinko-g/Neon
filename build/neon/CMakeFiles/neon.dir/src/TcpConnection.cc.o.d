@@ -145,4 +145,8 @@ neon/CMakeFiles/neon.dir/src/TcpConnection.cc.o: \
  /usr/include/c++/7/bits/shared_ptr_atomic.h \
  /usr/include/c++/7/bits/atomic_base.h \
  /usr/include/c++/7/bits/atomic_lockfree_defines.h \
- /usr/include/c++/7/backward/auto_ptr.h
+ /usr/include/c++/7/backward/auto_ptr.h \
+ /home/kinko/cpp/neon/neon/./include/Channel.h \
+ /usr/include/x86_64-linux-gnu/sys/epoll.h \
+ /usr/include/x86_64-linux-gnu/bits/epoll.h /usr/include/c++/7/functional \
+ /usr/include/c++/7/bits/std_function.h

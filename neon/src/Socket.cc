@@ -62,6 +62,11 @@ Socket::Endpoint Socket::address() {
     return {};
 }
 
+int Socket::accepet() {
+    return ::accept(fd_,nullptr,nullptr);
+}
+
+
 Socket::~Socket() {
     ::close(fd_);
 }

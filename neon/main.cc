@@ -7,7 +7,7 @@
 #include <cstring>
 #include <Socket.h>
 #include <Acceptor.h>
-
+#include <TcpConnection.h>
 void unit_test() {
     // socket test
 #if 0
@@ -21,9 +21,9 @@ void unit_test() {
     Neon::EventLoop eventloop{};
     Neon::Acceptor acceptor{&eventloop};
     acceptor.listen_on({"127.0.0.1",8080});
-    acceptor.set_new_conn_handler([](int fd) {
+    acceptor.set_new_conn_handler([](std::shared_ptr<Neon::TcpConnection> conn) {
         std::cout << "new connection comming\n";
-        std::cout << "fd : " << fd << "\n";
+        std::cout << "fd : " << conn->tcp_socket().fd() << "\n";
     });
     eventloop.loop();
 }
