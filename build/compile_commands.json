@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/main.cc.o -c /home/kinko/cpp/neon/neon/main.cc",
+  "file": "/home/kinko/cpp/neon/neon/main.cc"
+},
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/src/Acceptor.cc.o -c /home/kinko/cpp/neon/neon/src/Acceptor.cc",
+  "file": "/home/kinko/cpp/neon/neon/src/Acceptor.cc"
+},
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/src/Channel.cc.o -c /home/kinko/cpp/neon/neon/src/Channel.cc",
+  "file": "/home/kinko/cpp/neon/neon/src/Channel.cc"
+},
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/src/EventLoop.cc.o -c /home/kinko/cpp/neon/neon/src/EventLoop.cc",
+  "file": "/home/kinko/cpp/neon/neon/src/EventLoop.cc"
+},
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/src/Poller.cc.o -c /home/kinko/cpp/neon/neon/src/Poller.cc",
+  "file": "/home/kinko/cpp/neon/neon/src/Poller.cc"
+},
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/src/Socket.cc.o -c /home/kinko/cpp/neon/neon/src/Socket.cc",
+  "file": "/home/kinko/cpp/neon/neon/src/Socket.cc"
+},
+{
+  "directory": "/home/kinko/cpp/neon/build/neon",
+  "command": "/usr/bin/g++  -I/home/kinko/cpp/neon/neon/./include -g -std=gnu++14 -o CMakeFiles/neon.dir/src/TcpConnection.cc.o -c /home/kinko/cpp/neon/neon/src/TcpConnection.cc",
+  "file": "/home/kinko/cpp/neon/neon/src/TcpConnection.cc"
+}
+]
