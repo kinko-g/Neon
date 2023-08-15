@@ -1,5 +1,0 @@
-/home/kinko/cpp/neon/build/CMakeFiles/edit_cache.dir
-/home/kinko/cpp/neon/build/CMakeFiles/rebuild_cache.dir
-/home/kinko/cpp/neon/build/neon/CMakeFiles/neon.dir
-/home/kinko/cpp/neon/build/neon/CMakeFiles/edit_cache.dir
-/home/kinko/cpp/neon/build/neon/CMakeFiles/rebuild_cache.dir
