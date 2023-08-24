@@ -11,6 +11,7 @@ Channel::Channel(int fd,EventLoop* eventloop) :
 void Channel::handle_events() {
     // do epoll events with revents
     // 服务端出错
+    // fprintf(stdout,"handle events ,fd : %d,revents : %d",fd_,revents_);
     if((revents_ & EPOLLHUP) && !(revents_ & EPOLLIN)) {
         handle_close();
         return;

@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <algorithm>
 #include <unistd.h>
+#include <cstring>
 using namespace Neon;
 
 Poller::Poller() 
@@ -16,12 +17,13 @@ Poller::Poller()
 
 void Poller::add_event(ChannelSP& chan) {
     auto fd = chan->fd();
+    fprintf(stdout,"add_event: %d\n",fd);
     fd2channel_.insert({fd,chan});
     epoll_event ev;
     ev.data.fd = fd;
     ev.events = chan->events();
     if(epoll_ctl(epfd_,EPOLL_CTL_ADD,fd,&ev) < 0) {
-        fprintf(stdout,"add_event,epoll ctl error\n");
+        fprintf(stdout,"add_event,epoll ctl error fd : %d,err : %s\n",fd,strerror(errno));
         fd2channel_.erase(fd);
         return;
     }
@@ -36,6 +38,11 @@ void Poller::update_event(ChannelSP& chan) {
         return;
     }
     auto events = chan->events();
+
+    if(events == 0) {
+        delete_event(chan);
+        return;
+    }
     epoll_event ev;
     ev.data.fd = fd;
     ev.events = events;
@@ -77,6 +84,9 @@ std::vector<ChannelSP> Poller::poll(double timeout) {
             actives.push_back(chan);
         }
         return actives;
+    }
+    for(auto& p : fd2channel_) {
+        fprintf(stdout,"p fd : %d\n",p.first);
     }
     return {};
 }

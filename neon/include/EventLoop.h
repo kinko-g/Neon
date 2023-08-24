@@ -23,6 +23,9 @@ public:
     bool is_in_loop_thread() {
         return std::this_thread::get_id() == thread_id_;
     }
+    void quit() {
+        quit_ = true;
+    }
 private:
     void do_pending_tasks();
     void weakup();

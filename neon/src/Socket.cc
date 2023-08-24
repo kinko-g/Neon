@@ -4,6 +4,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <iostream>
+#include <cstdio>
 namespace Neon {
 Socket::Socket(int fd) : fd_{fd} {
 
@@ -68,6 +69,7 @@ int Socket::accepet() {
 
 
 Socket::~Socket() {
+    fprintf(stdout,"~Socket\n");
     ::close(fd_);
 }
 

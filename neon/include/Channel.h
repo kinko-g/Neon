@@ -18,15 +18,27 @@ public:
         events_ |= EPOLLIN;
         update();
     }
+    void enable_wrting() {
+        events_ |= EPOLLOUT;
+        update();
+    }
+    void disable_reading() {
+        events_ &= ~EPOLLIN;
+        update();
+    }
+    void disable_writing() {
+        events_ &= ~EPOLLOUT;
+        update();
+    }
+    void disable() {
+        events_ = 0;
+        update();
+    }
     bool is_reading() {
         return events_ & EPOLLIN;
     }
     bool is_writeing() {
         return events_ & EPOLLOUT;
-    }
-    void enable_wrting() {
-        events_ |= EPOLLOUT;
-        update();
     }
 
     int events() {

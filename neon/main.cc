@@ -8,6 +8,9 @@
 #include <Socket.h>
 #include <Acceptor.h>
 #include <TcpConnection.h>
+#include <Connector.h>
+#include <vector>
+
 void unit_test() {
     // socket test
 #if 0
@@ -18,13 +21,20 @@ void unit_test() {
     std::cout << std::boolalpha << ret << "\n";
     std::cout << endpoint.ip << ":" << endpoint.port << "\n";
 #endif
+    std::vector<std::shared_ptr<Neon::TcpConnection>> conns{};
     Neon::EventLoop eventloop{};
     Neon::Acceptor acceptor{&eventloop};
     acceptor.listen_on({"127.0.0.1",8080});
-    acceptor.set_new_conn_handler([](std::shared_ptr<Neon::TcpConnection> conn) {
+    acceptor.set_new_conn_handler([&conns,ep = &eventloop](std::shared_ptr<Neon::TcpConnection> conn) {
         std::cout << "new connection comming\n";
         std::cout << "fd : " << conn->tcp_socket().fd() << "\n";
+        ep->queue_in_loop([conn]{
+            conn->start_read();
+        });
+        conns.push_back(conn);
     });
+    // Neon::Connector connector{&eventloop};
+    // connector.connect_to({"127.0.0.1",8080});
     eventloop.loop();
 }
 

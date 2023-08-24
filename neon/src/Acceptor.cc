@@ -26,6 +26,9 @@ void Acceptor::listen_on(const Socket::Endpoint& endpoint,int backlogs) {
         auto fd = this->sock_.accepet();
         if(fd > 0 && this->new_conn_handler_) {
             auto conn = std::make_shared<TcpConnection>(fd,this->eventloop_);
+            conn->on_close([]{
+                fprintf(stdout,"conn close");
+            });
             this->new_conn_handler_(conn);
         } 
         else {
