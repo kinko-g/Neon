@@ -14,6 +14,9 @@ public:
     void send_message(const std::string& data);
     void connect_to(const Socket::Endpoint& endpoint);
     void close();
+    TcpConnection::State state() {
+        return conn_->state();
+    }
 private:
     EventLoop* eventloop_;
     std::shared_ptr<TcpConnection> conn_;

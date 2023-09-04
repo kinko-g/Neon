@@ -26,6 +26,9 @@ public:
     void quit() {
         quit_ = true;
     }
+    std::thread::id thread_id() {
+        return thread_id_;
+    }
 private:
     void do_pending_tasks();
     void weakup();

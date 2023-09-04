@@ -22,7 +22,7 @@ EventLoop::EventLoop()
     thread_id_{std::this_thread::get_id()} {
 
     if(local_eventloop) {
-        fprintf(stdout,"has exist other eventloop run in this thread");
+        printf("has exist other eventloop run in this thread");
     }
     else {
         local_eventloop = this;
@@ -88,7 +88,7 @@ void EventLoop::weakup() {
     int n = 1;
     auto writen = ::write(weakup_chan_->fd(),&n,sizeof(n));
     if(writen != sizeof(n)) {
-        fprintf(stdout,"weakup channel fault\n");;
+        printf("weakup channel fault\n");
         return;
     }
 }

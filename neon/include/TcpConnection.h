@@ -56,7 +56,9 @@ public:
     void set_state(State state) {
         state_ = state;
     }
-
+    State state() {
+        return state_;
+    }
     void send(const std::string& message);
     void close();
     // static std::shared_ptr<TcpConnection> connect_to(const Socket::Endpoint& endpoint,EventLoop* eventloop);
@@ -69,7 +71,7 @@ private:
     Socket sock_;
     std::shared_ptr<Channel> chan_;
     EventLoop* eventloop_;
-    std::vector<char> buf_;
+    std::vector<char> read_buf_;
     OnReadType on_read_cb_;
     OnCloseType on_close_cb_;
     OnErrorType on_error_cb_;

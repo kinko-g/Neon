@@ -10,7 +10,7 @@ TcpConnection::TcpConnection(int fd,EventLoop *eventloop)
     :sock_{fd},
     chan_{std::make_shared<Channel>(fd,eventloop)},
     eventloop_{eventloop},
-    buf_(1024,0),
+    read_buf_(1024,0),
     state_{State::DISCONNECTED} {
     
     sock_.set_nonblocking();
@@ -28,11 +28,11 @@ void TcpConnection::start_read() {
 
 void TcpConnection::read_handler() {
     state_ = State::READING;
-    buf_.clear();
-    auto n = ::read(sock_.fd(),&*buf_.begin(),buf_.size());
+    read_buf_.clear();
+    auto n = ::read(sock_.fd(),&*read_buf_.begin(),read_buf_.size());
     // fprintf(stdout,"conn read , n : %ld,fd : %d",n,chan_->fd());
     if(n > 0 && on_read_cb_) {
-        on_read_cb_(buf_);
+        on_read_cb_(read_buf_);
     }
     if(n == 0 && on_close_cb_) {
         on_close_cb_();

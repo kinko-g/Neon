@@ -5,6 +5,7 @@
 #include <arpa/inet.h>
 #include <iostream>
 #include <cstdio>
+#include <Utilities.h>
 namespace Neon {
 Socket::Socket(int fd) : fd_{fd} {
 
@@ -42,10 +43,9 @@ bool Socket::is_reused() {
 }
 
 bool Socket::listen_on(const Endpoint& endpoint,int backlogs) {
-    sockaddr_in addr{
-        .sin_family = AF_INET,
-        .sin_port = htons(endpoint.port)
-    };
+    sockaddr_in addr{};
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(endpoint.port);
     inet_pton(AF_INET,endpoint.ip.c_str(),&addr.sin_addr);
     if(::bind(fd_,(sockaddr*)&addr,sizeof(addr)) != 0) {
         return false;
@@ -57,7 +57,7 @@ Socket::Endpoint Socket::address() {
     sockaddr_in addr{};
     socklen_t addr_len = sizeof(addr);
     if(getsockname(fd_,(sockaddr*)&addr,&addr_len) == 0) {
-        std::cout << "getsockname\n";
+        printf("getsockname\n");
         return {inet_ntoa(addr.sin_addr),ntohs(addr.sin_port)};
     }
     return {};
@@ -69,7 +69,7 @@ int Socket::accepet() {
 
 
 Socket::~Socket() {
-    fprintf(stdout,"~Socket\n");
+    printf("~Socket\n");
     ::close(fd_);
 }
 

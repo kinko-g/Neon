@@ -68,11 +68,11 @@ std::vector<ChannelSP> Poller::poll(double timeout) {
     // fprintf(stdout,"Poller::poll\n");
     auto readyn = epoll_wait(epfd_,events_.data(),events_.size(),timeout);
     if(readyn == 0) {
-        fprintf(stdout,"epoll wait timeout\n");
+        printf("epoll wait timeout\n");
     }
 
     if(readyn < 0) {
-        fprintf(stdout,"epoll wait error\n");
+        printf("epoll wait error\n");
     }
 
     if(readyn > 0) {
@@ -86,7 +86,7 @@ std::vector<ChannelSP> Poller::poll(double timeout) {
         return actives;
     }
     for(auto& p : fd2channel_) {
-        fprintf(stdout,"p fd : %d\n",p.first);
+        printf("p fd : %d\n",p.first);
     }
     return {};
 }

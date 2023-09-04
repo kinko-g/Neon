@@ -29,13 +29,13 @@ void Connector::connect_to(const Socket::Endpoint& endpoint) {
     }
     conn_->start_read();
     conn_->on_close([]{
-        fprintf(stdout,"connection closeed");
+        printf("connection closeed\n");
     });
     conn_->on_error([]{
-        fprintf(stdout,"connection error");
+        printf("connection error\n");
     });
     conn_->on_message([](std::vector<char>& data) {
-        fprintf(stdout,"connection on message");
+        printf("connection on message\n");
     });
 }
 

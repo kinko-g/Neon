@@ -10,7 +10,7 @@ class EventLoop;
 class TcpConnection;
 class Acceptor final : NonCopyable {
 public:
-    using NewConnHandlerType = std::function<void(std::shared_ptr<TcpConnection>)>;
+    using NewConnHandlerType = std::function<void(int)>;
     Acceptor(EventLoop* eventloop);
     void listen_on(const Socket::Endpoint& endpoint,int backlogs = 10);
     Socket& tcp_socket() {
